@@ -1,7 +1,7 @@
 fzf-git.sh
 ==========
 
-bash, zsh, and fish key bindings for Git objects, powered by [fzf][fzf].
+bash and zsh key bindings for Git objects, powered by [fzf][fzf].
 
 <img width="1680" alt="image" src="https://user-images.githubusercontent.com/700826/185568470-20d70937-eea4-4274-aec5-14dfe7ee2de6.png">
 
@@ -20,37 +20,35 @@ Installation
 * Update your shell configuration file
     * bash or zsh
         * Source [fzf-git.sh](https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh) file from your .bashrc or .zshrc
-    * fish
-        * Source [fzf-git.fish](https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.fish) from your config.fish
 
 Usage
 -----
 
 ### List of bindings
 
-* <kbd>CTRL-G</kbd><kbd>?</kbd> to show this list
-* <kbd>CTRL-G</kbd><kbd>CTRL-F</kbd> for **F**iles
-* <kbd>CTRL-G</kbd><kbd>CTRL-B</kbd> for **B**ranches
-* <kbd>CTRL-G</kbd><kbd>CTRL-T</kbd> for **T**ags
-* <kbd>CTRL-G</kbd><kbd>CTRL-R</kbd> for **R**emotes
-* <kbd>CTRL-G</kbd><kbd>CTRL-H</kbd> for commit **H**ashes
-* <kbd>CTRL-G</kbd><kbd>CTRL-S</kbd> for **S**tashes
-* <kbd>CTRL-G</kbd><kbd>CTRL-L</kbd> for ref**l**ogs
-* <kbd>CTRL-G</kbd><kbd>CTRL-W</kbd> for **W**orktrees
-* <kbd>CTRL-G</kbd><kbd>CTRL-E</kbd> for **E**ach ref (`git for-each-ref`)
+* <kbd>CTRL-I</kbd><kbd>?</kbd> to show this list
+* <kbd>CTRL-I</kbd><kbd>CTRL-F</kbd> for **F**iles
+* <kbd>CTRL-I</kbd><kbd>CTRL-B</kbd> for **B**ranches
+* <kbd>CTRL-I</kbd><kbd>CTRL-T</kbd> for **T**ags
+* <kbd>CTRL-I</kbd><kbd>CTRL-R</kbd> for **R**emotes
+* <kbd>CTRL-I</kbd><kbd>CTRL-H</kbd> for commit **H**ashes
+* <kbd>CTRL-I</kbd><kbd>CTRL-S</kbd> for **S**tashes
+* <kbd>CTRL-I</kbd><kbd>CTRL-L</kbd> for ref**l**ogs
+* <kbd>CTRL-I</kbd><kbd>CTRL-W</kbd> for **W**orktrees
+* <kbd>CTRL-I</kbd><kbd>CTRL-E</kbd> for **E**ach ref (`git for-each-ref`)
 
 > [!WARNING]
 > You may have issues with these bindings in the following cases:
 >
-> * <kbd>CTRL-G</kbd><kbd>CTRL-B</kbd> will not work if
+> * <kbd>CTRL-I</kbd><kbd>CTRL-B</kbd> will not work if
 >   <kbd>CTRL-B</kbd> is used as the tmux prefix
-> * <kbd>CTRL-G</kbd><kbd>CTRL-S</kbd> will not work if flow control is enabled,
+> * <kbd>CTRL-I</kbd><kbd>CTRL-S</kbd> will not work if flow control is enabled,
 >   <kbd>CTRL-S</kbd> will freeze the terminal instead
 >     * (`stty -ixon` will disable it)
 >
 > To workaround the problems, you can use
-> <kbd>CTRL-G</kbd><kbd>*{key}*</kbd> instead of
-> <kbd>CTRL-G</kbd><kbd>CTRL-*{KEY}*</kbd>.
+> <kbd>CTRL-I</kbd><kbd>*{key}*</kbd> instead of
+> <kbd>CTRL-I</kbd><kbd>CTRL-*{KEY}*</kbd>.
 >
 
 > [!WARNING]
