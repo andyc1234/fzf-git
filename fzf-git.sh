@@ -70,27 +70,27 @@ if [[ $1 = --list ]]; then
     }
     case "$1" in
       branches)
-        echo 'ctrl-o (open in browser) ╱ alt-a (show all branches) / alt-h (list commit hashes)'
+        echo 'alt-a (show all branches) / alt-h (list commit hashes)'
         branches
         ;;
       all-branches)
-        echo 'ctrl-o (open in browser) ╱ alt-enter (accept without remote) / alt-h (list commit hashes)'
+        echo 'alt-enter (accept without remote) / alt-h (list commit hashes)'
         branches -a
         ;;
       hashes)
-        echo 'ctrl-o (open in browser) ╱ ctrl-d (diff) / ctrl-s (toggle sort) ╱ alt-a (show all hashes)'
+        echo 'ctrl-d (diff) / ctrl-s (toggle sort) / alt-a (show all hashes)'
         hashes
         ;;
       all-hashes)
-        echo 'ctrl-o (open in browser) ╱ ctrl-d (diff) / ctrl-s (toggle sort)'
+        echo 'ctrl-d (diff) / ctrl-s (toggle sort)'
         hashes --all
         ;;
       refs)
-        echo 'ctrl-o (open in browser) ╱ alt-e (examine in editor) ╱ alt-a (show all refs)'
+        echo 'alt-e (examine in editor) / alt-a (show all refs)'
         refs --exclude='refs/remotes'
         ;;
       all-refs)
-        echo 'ctrl-o (open in browser) ╱ alt-e (examine in editor)'
+        echo 'alt-e (examine in editor)'
         refs
         ;;
       *) exit 1 ;;
@@ -189,7 +189,7 @@ _fzf_git_files() {
    git ls-files "$root" | grep -vxFf <(git status -s | grep '^[^?]' | cut -c4-; echo :) | sed 's/^/   /') |
   _fzf_git_fzf -m --ansi --nth 2..,.. \
     --border-label 'Files' \
-    --header 'ctrl-o (open in browser) ╱ alt-e (open in editor)' \
+    --header 'alt-e (open in editor)' \
     --bind "ctrl-o:execute-silent:bash \"$__fzf_git\" --list file {-1}" \
     --bind "alt-e:execute:${EDITOR:-vim} {-1} > /dev/tty" \
     --query "$query" \
@@ -250,7 +250,6 @@ _fzf_git_remotes() {
   git remote -v | awk '{print $1 "\t" $2}' | uniq |
   _fzf_git_fzf --tac \
     --border-label 'Remotes' \
-    --header 'ctrl-o (open in browser)' \
     --bind 'ctrl-/:change-preview-window(right,border-left,70%|)' \
     --bind "ctrl-o:execute-silent:bash \"$__fzf_git\" --list remote {1}" \
     --preview "git log --oneline --graph --date=short --color=$(__fzf_git_color .) --pretty='format:%C(auto)%cd %h%d %s' '{1}/$(git rev-parse --abbrev-ref HEAD)' --" "$@" |
@@ -346,18 +345,18 @@ if [[ -n "${BASH_VERSION:-}" ]]; then
         bind -x '"\C-i'$c'": _fzf_git_list_bindings'
         continue
       fi
-      bind -m emacs-standard '"\C-i\C-'$c'": " \C-u \C-a\C-k`_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
+      bind -m emacs-standard '"\C-i\C-'$c'": " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
       bind -m vi-command     '"\C-i\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
       bind -m vi-insert      '"\C-i\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
-      bind -m emacs-standard '"\C-i'$c'":    " \C-u \C-a\C-k`_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
+      bind -m emacs-standard '"\C-i'$c'":    " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
       bind -m vi-command     '"\C-i'$c'":    "\C-z\C-g'$c'\C-z"'
       bind -m vi-insert      '"\C-i'$c'":    "\C-z\C-g'$c'\C-z"'
     done
 
-    bind -m emacs-standard '"\C-i\C-i": " \C-u \C-a\C-k`_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
+    bind -m emacs-standard '"\C-i\C-i": " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
     bind -m vi-command     '"\C-i\C-i": "\C-z\C-i\C-i\C-z"'
     bind -m vi-insert      '"\C-i\C-i": "\C-z\C-i\C-i\C-z"'
-    bind -m emacs-standard '"\C-ii":    " \C-u \C-a\C-k`_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
+    bind -m emacs-standard '"\C-ii":    " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
     bind -m vi-command     '"\C-ii":    "\C-z\C-ii\C-z"'
     bind -m vi-insert      '"\C-ii":    "\C-z\C-ii\C-z"'
   }
