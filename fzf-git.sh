@@ -342,23 +342,23 @@ if [[ -n "${BASH_VERSION:-}" ]]; then
     for o in "$@"; do
       c=${o:0:1}
       if [[ $c == '?' ]]; then
-        bind -x '"\C-i'$c'": _fzf_git_list_bindings'
+        bind -x '"\C-n'$c'": _fzf_git_list_bindings'
         continue
       fi
-      bind -m emacs-standard '"\C-i\C-'$c'": " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
-      bind -m vi-command     '"\C-i\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
-      bind -m vi-insert      '"\C-i\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
-      bind -m emacs-standard '"\C-i'$c'":    " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
-      bind -m vi-command     '"\C-i'$c'":    "\C-z\C-g'$c'\C-z"'
-      bind -m vi-insert      '"\C-i'$c'":    "\C-z\C-g'$c'\C-z"'
+      bind -m emacs-standard '"\C-n\C-'$c'": " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
+      bind -m vi-command     '"\C-n\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
+      bind -m vi-insert      '"\C-n\C-'$c'": "\C-z\C-g\C-'$c'\C-z"'
+      bind -m emacs-standard '"\C-n'$c'":    " \C-u \C-a\C-k `_fzf_git_'$o'`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
+      bind -m vi-command     '"\C-n'$c'":    "\C-z\C-g'$c'\C-z"'
+      bind -m vi-insert      '"\C-n'$c'":    "\C-z\C-g'$c'\C-z"'
     done
 
-    bind -m emacs-standard '"\C-i\C-i": " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
-    bind -m vi-command     '"\C-i\C-i": "\C-z\C-i\C-i\C-z"'
-    bind -m vi-insert      '"\C-i\C-i": "\C-z\C-i\C-i\C-z"'
-    bind -m emacs-standard '"\C-ii":    " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
-    bind -m vi-command     '"\C-ii":    "\C-z\C-ii\C-z"'
-    bind -m vi-insert      '"\C-ii":    "\C-z\C-ii\C-z"'
+    bind -m emacs-standard '"\C-n\C-n": " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
+    bind -m vi-command     '"\C-n\C-n": "\C-z\C-i\C-i\C-z"'
+    bind -m vi-insert      '"\C-n\C-n": "\C-z\C-i\C-i\C-z"'
+    bind -m emacs-standard '"\C-nn":    " \C-u \C-a\C-k `_fzf_git_files`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
+    bind -m vi-command     '"\C-nn":    "\C-z\C-ii\C-z"'
+    bind -m vi-insert      '"\C-nn":    "\C-z\C-ii\C-z"'
   }
 elif [[ -n "${ZSH_VERSION:-}" ]]; then
   __fzf_git_join() {
